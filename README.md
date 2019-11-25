@@ -1,3 +1,6 @@
+Apos executar o container, acesse o ambiente home e execute o connvpn.sh
+
+```Bash
 docker run -it \
    -e DISPLAY \
    -e VPNSITE=vpnusersebt.mysite.com.br \
@@ -10,3 +13,4 @@ docker run -it \
    --name gbconn \
    --shm-size=2g \
    gbconn:latest
+   ```
