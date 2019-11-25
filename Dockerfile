@@ -65,8 +65,8 @@ RUN adduser \
     echo "admin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     echo "Customized the sudoers file for passwordless access to the amin user!"
 
-COPY content /home/admin
-RUN chown admin:admin /home/admin/entrypoint.sh && chmod +x /home/admin/entrypoint.sh
+COPY content /home/admin/ 
+RUN chown admin:admin /home/admin/connvpn.sh  && chmod +x /home/admin/connvpn.sh 
 USER admin
 EXPOSE 9090
 EXPOSE 5061
