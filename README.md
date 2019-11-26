@@ -12,5 +12,5 @@ docker run -it \
    --hostname wtimedbs001.mysite.com.br \
    --name gbconn \
    --shm-size=2g \
-   gbconn:latest
+   clazarsky/gbconn:latest
    ```
