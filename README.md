@@ -14,3 +14,13 @@ docker run -it \
    --shm-size=2g \
    clazarsky/gbconn:latest
    ```
+   
+   
+   Apos intalacao, use o apt update para atualizar todos os pacotes, e instale o pacote tzdata.
+   Apenas as seguintes opcoes sao obrigatorias:
+   
+      -e VPNSITE=vpnusersebt.mysite.com.br \
+      --privileged \
+No diretorio home, voce vai econtrar : connvpn.sh
+Edite e altere o pin e user name
+Para efetuar a conexao : connvpn.sh -c
