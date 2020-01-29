@@ -4,26 +4,32 @@ sudo=/usr/bin/sudo
 openconnect=/usr/local/sbin/openconnect
 iptables=/sbin/iptables	
 pkill=/usr/bin/pkill
+stoken=/usr/bin/stoken
+pwdpin="121212121" 
+vpnuser="uservpn"
+
+function equit {
+echo "Exit" 
+exit 0;
+}
 
 function connect {
 echo "Conectando a VPN..."
-$sudo $openconnect --protocol=gp ${VPNSITE} --no-dtls -b
-
-sleep 5
+echo "$(pwdpin)$(stoken)" | $sudo $openconnect --protocol=gp $VPNSITE --user=$vpnuser --passwd-on-stdin --no-dtls -b
+sleep 1
 echo "Aplicando Regras Iptables..."
 $sudo $iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
-$sudo $iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 9090 -j DNAT --to 10.104.37.160:9090
+#$sudo $iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 9090 -j DNAT --to 10.104.37.160:9090
 $sudo $iptables -A FORWARD -i eth0 -j ACCEPT
 echo "Conectado"
-
-/bin/bash
+equit
 }
 
 function disconnect {
 	echo "Disconnecting..."
 	$sudo $pkill -SIGINT openconnect
-
-/bin/bash
+	$sudo $iptables -F
+exit 0;
 }
 
 subcommand=$1
