@@ -5,8 +5,7 @@ openconnect=/usr/local/sbin/openconnect
 iptables=/sbin/iptables	
 pkill=/usr/bin/pkill
 stoken=/usr/bin/stoken
-pwdpin="121212121" 
-vpnuser="uservpn"
+
 
 function equit {
 echo "Exit" 
@@ -15,7 +14,7 @@ exit 0;
 
 function connect {
 echo "Conectando a VPN..."
-echo "$(pwdpin)$(stoken)" | $sudo $openconnect --protocol=gp $VPNSITE --user=$vpnuser --passwd-on-stdin --no-dtls -b
+echo "${VPNPIN}$(stoken)" | $sudo $openconnect --protocol=gp $VPNSITE --user=$VPNNAME --passwd-on-stdin --no-dtls -b
 sleep 1
 echo "Aplicando Regras Iptables..."
 $sudo $iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
