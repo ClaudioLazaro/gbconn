@@ -23,6 +23,10 @@ docker run -it \
    
       -e VPNSITE=vpnusersebt.mysite.com.br \
       --privileged \
+      -e VPNPIN=12345 \
+      -e VPNNAME=myname \
+      
+      Quando estive dentro da docker, nao se esquecer de importar a chave da VPN (stoken) nao registre senhas.
 No diretorio home, voce vai econtrar : connvpn.sh
 Edite e altere o pin e user name
 Para efetuar a conexao : connvpn.sh -c
