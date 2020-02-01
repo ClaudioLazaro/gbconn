@@ -4,6 +4,8 @@ Apos executar o container, acesse o ambiente home e execute o connvpn.sh
 docker run -it \
    -e DISPLAY \
    -e VPNSITE=vpnusersebt.mysite.com.br \
+   -e VPNPIN=12345 \
+   -e VPNNAME=myname \
    -v /tmp/.X11-unix:/tmp/.X11-unix \
    -v ${HOME}/.pidgin:/admin/config \
    -v ${HOME}/.sky2:/admin/.sky2 \
