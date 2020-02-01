@@ -35,7 +35,7 @@ RUN set -ex \
     libxfixes3 libxi6 libxinerama1 libxkbcommon-x11-0 libxkbcommon0 libxkbfile1 libxmu6 libxrandr2 libxrender1 libxshmfence1 libxss1 \
     libxt6 libxtst6 libxv1 libxvidcore4 libxxf86vm1 libzvbi-common libzvbi0 mesa-va-drivers \
     mesa-vdpau-drivers multiarch-support pulseaudio-utils qt5-gtk-platformtheme qttranslations5-l10n ubuntu-mono ucf \
-    va-driver-all vdpau-driver-all x11-common xkb-data stoken sudo inetutils-ping telnet \
+    va-driver-all vdpau-driver-all x11-common xkb-data stoken sudo inetutils-ping telnet nano \
 ##    libnvidia-cfg1-435:amd64 libnvidia-common-435 libnvidia-compute-435:amd64 \
 ##    libnvidia-decode-435:amd64 libnvidia-encode-435:amd64 libnvidia-fbc1-435:amd64 libnvidia-gl-435:amd64 \
 ##    libnvidia-ifr1-435:amd64 nvidia-compute-utils-435 nvidia-dkms-435 nvidia-driver-435 nvidia-kernel-common-435 \
@@ -68,8 +68,6 @@ RUN adduser \
 COPY content /home/admin/ 
 RUN chown admin:admin /home/admin/connvpn.sh  && chmod +x /home/admin/connvpn.sh 
 USER admin
-EXPOSE 9090
-EXPOSE 5061
 ENTRYPOINT ["/bin/bash"]
 
 
