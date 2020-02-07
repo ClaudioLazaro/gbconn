@@ -13,8 +13,6 @@ RUN set -ex \
     inetutils-ping telnet nano \
 ## COPIAR DO GITHUB
     && git clone https://github.com/dlenski/openconnect.git /tmp/openconnect-globalprotect \
-    && curl -O https://www.tel.red/linux.php?f=sky_2.1.7458-1ubuntu%2Bbionic_amd64.deb \
-    && dpkg -i *.deb \	
 ## INSTALANDO GB 
     && cd /tmp/openconnect-globalprotect \
     && ./autogen.sh \
