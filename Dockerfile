@@ -11,15 +11,8 @@ RUN set -ex \
     libxml2-dev git curl iptables libxss1 libtool vpnc-scripts \
     pkg-config zlib1g-dev libgnutls28-dev stoken sudo \
     inetutils-ping telnet nano \
-## COPIAR DO GITHUB
-    && git clone https://github.com/dlenski/openconnect.git /tmp/openconnect-globalprotect \
 ## INSTALANDO GB 
-    && cd /tmp/openconnect-globalprotect \
-    && ./autogen.sh \
-    && ./configure \
-    && make \
-    && make install && ldconfig\
-    && apt-get clean
+    apt-get install openconnect -y && apt-get clean \
 ##RUN groupadd --gid 1000 admin &&
 RUN adduser \
     --disabled-password \
